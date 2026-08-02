@@ -1,0 +1,9 @@
+{
+  "name": "ad-monitor",
+  "private": true,
+  "scripts": {
+    "dev": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "install:all": "cd client && npm install && cd ../server && npm install"
+  }
+}

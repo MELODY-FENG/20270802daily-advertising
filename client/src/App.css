@@ -1,0 +1,102 @@
+/* ====== AD-3 响应式布局 ====== */
+
+/* 四、小矮人横幅 — 单独锁定布局 */
+.dwarf-parade-bar,
+.dwarf-runner,
+.dwarf-figure,
+.fabric-banner {
+  contain: layout style !important;
+  transform: translateZ(0) !important;
+  will-change: auto !important;
+}
+
+/* 左栏固定 */
+.ad-sider {
+  position: fixed !important; left: 0; top: 0; bottom: 0; z-index: 100;
+  overflow-y: auto;
+  background: rgba(232,217,197,0.58) !important;
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-right: 1px solid rgba(166,124,82,0.08) !important;
+  contain: layout style; transform: translateZ(0);
+}
+
+/* 主内容偏移 */
+.ad-content { margin-left: 212px; transition: margin-left 0.3s; min-width: 0; width: calc(100vw - 212px); }
+.ad-content.collapsed { margin-left: 72px; width: calc(100vw - 72px); }
+
+/* 冻结顶部栏 */
+.ad-header-sticky {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(248,243,237,0.85);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  padding: 8px 20px 0;
+  contain: layout style; transform: translateZ(0); will-change: auto;
+}
+.ad-filters-sticky {
+  position: sticky; top: 104px; z-index: 49;
+  background: rgba(248,243,237,0.82);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  padding: 6px 20px;
+  contain: layout style; transform: translateZ(0); will-change: auto;
+}
+
+.ad-upload-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(248,243,237,0.92);
+  backdrop-filter: blur(8px);
+  padding: 12px 24px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 2px 12px rgba(74,56,40,0.10);
+}
+.ad-upload-progress { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; height: 2px; }
+
+/* 面板容器隔离 */
+.ad-panel-body { max-height: 500px; min-height: 200px; overflow-y: auto; padding-right: 4px; }
+.ant-table-wrapper { min-height: 200px; }
+.ant-collapse-item { contain: layout style; }
+.ad-collapse-panel .ant-collapse-content { contain: layout style; }
+
+/* 表格表头 */
+.ad-panel-body .ant-table-thead { position: static !important; }
+
+/* 左栏菜单 */
+.ad-sider .ant-menu-item { font-weight: 600 !important; }
+
+/* 二级标题菱形图标 */
+.sub-panel-icon { display: inline-block; width: 6px; height: 6px; background: var(--c-primary); transform: rotate(45deg); margin-right: 6px; opacity: 0.7; flex-shrink: 0; }
+
+/* 面板标题加粗 */
+.ad-collapse-panel > .ant-collapse-item > .ant-collapse-header { font-weight: 700 !important; }
+.ad-panel-body .ant-collapse-header { font-weight: 700 !important; }
+
+/* 三、全局所有可视容器 contain:strict */
+.ad-collapse-panel,
+.ant-collapse,
+.ant-table-container,
+.ant-table,
+.data-module,
+.metric-cards {
+  contain: layout style;
+  transform: translateZ(0);
+  will-change: auto;
+}
+
+/* ====== 响应式 ====== */
+@media (max-width: 1400px) {
+  .ad-content { margin-left: 180px; }
+  .ad-content.collapsed { margin-left: 60px; }
+}
+@media (max-width: 1200px) {
+  .ad-content { margin-left: 60px !important; }
+  .ad-filters-sticky { top: 96px; }
+}
+@media (max-width: 900px) {
+  .ad-content { margin-left: 0 !important; }
+  .ad-sider { z-index: 200; }
+  .ad-filters-sticky { top: 90px; }
+  .ad-panel-body { max-height: 400px; }
+}
+@media (max-width: 600px) {
+  .ad-filters-sticky { top: 80px; }
+  .ad-panel-body { max-height: 300px; }
+}

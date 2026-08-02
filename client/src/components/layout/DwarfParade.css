@@ -1,0 +1,13 @@
+.dwarf-parade-bar{overflow-x:clip;overflow-y:visible;height:64px;position:relative;display:flex;align-items:flex-end;margin:4px 0 8px}
+.dwarf-runner{display:flex;align-items:flex-end;gap:0;width:max-content;animation:dwarfParade 13s ease-in-out infinite alternate;will-change:transform}
+@keyframes dwarfParade{0%{transform:translateX(0)}100%{transform:translateX(calc(-100% + 100vw - 260px))}}
+@keyframes dwarfBob{0%{transform:translateY(0)}100%{transform:translateY(-2px)}}
+.dwarf-figure{flex-shrink:0;animation:dwarfBob 0.5s ease-in-out infinite alternate}
+.dwarf-figure:nth-child(2){animation-delay:0.07s}.dwarf-figure:nth-child(3){animation-delay:0.14s}
+.dwarf-figure:nth-child(5){animation-delay:0.21s}.dwarf-figure:nth-child(6){animation-delay:0.10s}
+.dwarf-figure:nth-child(7){animation-delay:0.17s}
+.fabric-banner{flex-shrink:0;margin:0 2px;position:relative}
+.banner-svg{display:block;filter:drop-shadow(0 2px 4px rgba(139,98,57,0.20))}
+.dwarf-svg{display:block;filter:drop-shadow(0 1px 3px rgba(74,56,40,0.10))}
+@media(max-width:768px){.dwarf-parade-bar{height:48px;margin:2px 0 6px}}
+@media(max-width:480px){.dwarf-parade-bar{height:36px}}
