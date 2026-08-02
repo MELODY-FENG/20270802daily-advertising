@@ -1,16 +1,45 @@
 # Handoff 归档 — 广告日监控看板
 
 > 📅 归档日期：2026-08-02  
-> 🏷️ 仓库命名：`20270802daily-advertising`  
 > 👤 作者：CC - AI 助理  
-> 🌐 生产地址：https://client-five-ashen-11.vercel.app  
-> 🖥️ 本地路径：`C:\Users\melod\Desktop\AD-3`
+
+## 🔗 三端联动速查
+
+| 端 | 地址 | 说明 |
+|------|------|------|
+| 🖥️ **本地** | `C:\Users\melod\Desktop\AD-3` | 开发主目录，所有源码在此 |
+| 📦 **GitHub** | https://github.com/MELODY-FENG/20270802daily-advertising | 代码仓库（已推送 52 文件） |
+| 🌐 **Vercel** | https://client-five-ashen-11.vercel.app | 生产网站（保持不变） |
+
+```
+本地修改 → GitHub Push → Vercel 自动构建部署 → 网站更新
+  ↓
+C:\Users\melod\Desktop\AD-3
+  │  npm run build → client/dist/
+  │  npm run dev   → http://127.0.0.1:5174
+  │  npx vercel --prod --yes → https://client-five-ashen-11.vercel.app
+  ↓
+git push origin main → https://github.com/MELODY-FENG/20270802daily-advertising
+```
+
+> ⚠️ **注意**：当前 Vercel 部署是通过 CLI 手动 `npx vercel --prod --yes` 触发，**未**绑定 Git 自动部署。如需 Vercel 自动部署，在 Vercel Dashboard 中关联 GitHub 仓库。
+
+### Vercel 项目凭证
+
+| 项目 | 值 |
+|------|------|
+| Vercel 项目名 | `client`（显示为 `client-five-ashen-11`） |
+| 项目 ID | `prj_AC6eOCdYFqqSNj8760lxI2ibEubZ` |
+| 团队 ID | `team_GqJajlaJBXZlsh8ZtRUiJMo0` |
+| 团队名 | `melody-feng` |
+| 构建设置 | Vite 自动检测，`npm run build` → `vite build` |
+| 输出目录 | `client/dist/`（`vercel.json` 如需要可添加） |
 
 ---
 
 ## 1. 网站与数据提取规范
 
-### 1.1 数据来源
+### 1.1 数据来源与代码仓库
 
 | 项目 | 说明 |
 |------|------|
@@ -18,6 +47,8 @@
 | 数据业务 | 美线客厅家具柜 全部搜索广告-日监控 |
 | 上传方式 | 浏览器端 SheetJS 解析（不上传服务器） |
 | 示例文件 | `client/public/default-data.json`（5MB 示例数据） |
+| 代码仓库 | https://github.com/MELODY-FENG/20270802daily-advertising |
+| 生产网站 | https://client-five-ashen-11.vercel.app（三端保持一致） |
 
 ### 1.2 文件名格式规范
 
@@ -192,17 +223,19 @@ ECharts 色板：`src/theme/tokens.ts` → `echartsWarmBrownPalette`（10 色暖
 | `services/excel-parser.ts` | Excel 解析（SheetJS） |
 | `services/excel-exporter.ts` | 数据导出 |
 
-### 3.6 部署
+### 3.6 部署与仓库
 
 | 项目 | 配置 |
 |------|------|
-| 平台 | Vercel |
-| 项目 ID | `prj_AC6eOCdYFqqSNj8760lxI2ibEubZ` |
-| 团队 ID | `team_GqJajlaJBXZlsh8ZtRUiJMo0` |
-| 域名 | `client-five-ashen-11.vercel.app` |
+| 生产 URL | https://client-five-ashen-11.vercel.app |
+| GitHub 仓库 | https://github.com/MELODY-FENG/20270802daily-advertising |
+| 平台 | Vercel（CLI 手动部署） |
+| Vercel 项目 ID | `prj_AC6eOCdYFqqSNj8760lxI2ibEubZ` |
+| Vercel 团队 ID | `team_GqJajlaJBXZlsh8ZtRUiJMo0` |
 | 框架 | Vite 6 + React 19 |
 | 构建命令 | `npm run build`（= `vite build`） |
 | 输出目录 | `client/dist/` |
+| Git 分支 | `main` |
 
 ---
 
